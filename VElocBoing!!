@@ -1,0 +1,12 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local torso = character:WaitForChild("HumanoidRootPart")
+
+game:GetService("UserInputService").InputBegan:Connect(function(input, processed)
+    if input.KeyCode == Enum.KeyCode.E and not processed then
+        character = player.Character or player.CharacterAdded:Wait()
+        torso = character:WaitForChild("HumanoidRootPart")
+        local velocity = Vector3.new(0, 100, 0)
+        torso.Velocity = torso.Velocity + velocity
+    end
+end)
